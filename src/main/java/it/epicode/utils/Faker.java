@@ -20,7 +20,7 @@ public class Faker {
         com.github.javafaker.Faker faker = new com.github.javafaker.Faker(Locale.ENGLISH);
         Random rndm = new Random();
         Periodicity[] values = Periodicity.values();
-        return new Magazine(faker.book().title(), rndm.nextInt(1980, 2024), rndm.nextInt(50, 1000), values[rndm.nextInt(values.length)]);
+        return new Magazine(faker.book().title(), rndm.nextInt(1980, 2024), rndm.nextInt(15, 40), values[rndm.nextInt(values.length)]);
     };
     public static Supplier<User> newUser = () -> {
         com.github.javafaker.Faker faker = new com.github.javafaker.Faker(Locale.ENGLISH);

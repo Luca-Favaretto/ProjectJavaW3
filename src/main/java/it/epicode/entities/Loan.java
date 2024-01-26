@@ -4,6 +4,7 @@ import it.epicode.abstractclass.LoanElement;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Random;
 import java.util.UUID;
 
 @Entity
@@ -35,9 +36,10 @@ public class Loan {
     }
 
     public Loan(User user, LoanElement loanElement) {
+        Random rnd = new Random();
         this.user = user;
         this.loanElement = loanElement;
-        this.loanDate = LocalDate.now();
+        this.loanDate = LocalDate.now().minusDays(rnd.nextInt(20, 40));
         this.expectedReturnDate = loanDate.plusDays(30);
     }
 

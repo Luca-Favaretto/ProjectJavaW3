@@ -11,7 +11,8 @@ import java.util.UUID;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "category")
 @NamedQuery(name = "find_by_year", query = "SELECT l FROM LoanElement l WHERE l.yearPublication=:yearPublication")
-@NamedQuery(name = "find_by_author", query = "SELECT l FROM LoanElement l WHERE l.author=:author")
+@NamedQuery(name = "find_by_title", query = "SELECT l FROM LoanElement l WHERE LOWER(l.title) LIKE LOWER(:title)")
+@NamedQuery(name = "find_by_author", query = "SELECT b FROM Book b WHERE b.author=:author")
 public abstract class LoanElement {
     @Column(nullable = false)
     protected String title;
