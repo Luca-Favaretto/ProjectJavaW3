@@ -90,7 +90,7 @@ public class Loan {
     @Override
     public String toString() {
         return "Loan{" +
-                "user=" + user +
+                "user=" + user.getName() +
                 ", loanElement=" + loanElement +
                 ", loanDate=" + loanDate +
                 ", expectedReturnDate=" + expectedReturnDate +

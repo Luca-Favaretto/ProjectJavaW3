@@ -27,7 +27,7 @@ public class Library {
             System.out.println();
             System.out.println("Save loanElement and user");
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 5; i++) {
                 Book book = Faker.newBook.get();
                 loanElementDAO.save(book);
                 Magazine magazine = Faker.newMagazine.get();
