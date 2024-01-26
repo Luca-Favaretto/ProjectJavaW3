@@ -87,5 +87,14 @@ public class Loan {
         this.loanElement = loanElement;
     }
 
-
+    @Override
+    public String toString() {
+        return "Loan{" +
+                "user=" + user +
+                ", loanElement=" + loanElement +
+                ", loanDate=" + loanDate +
+                ", expectedReturnDate=" + expectedReturnDate +
+                ", returDate=" + returDate +
+                '}';
+    }
 }

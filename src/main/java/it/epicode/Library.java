@@ -91,6 +91,8 @@ public class Library {
 
         System.out.println("Find loan by ExpiredLoan");
         System.out.println();
+        loanElementDAO.findExpiredLoan().forEach(System.out::println);
+
 
     }
 

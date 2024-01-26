@@ -1,6 +1,7 @@
 package it.epicode.dao;
 
 import it.epicode.abstractclass.LoanElement;
+import it.epicode.entities.Loan;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -15,11 +16,12 @@ public class LoanElementDAO {
         this.em = em;
     }
 
-//    public List<Loan> findExpiredLoan() {
-//        return em.createQuery("SELECT lo FROM ", Loan.class);
-//
-//
-//    }
+    public List<Loan> findExpiredLoan() {
+
+        return em.createQuery("SELECT lo FROM Loan lo WHERE lo.expectedReturnDate<NOW() AND lo.returDate IS NULL ", Loan.class).getResultList();
+
+
+    }
 
     public List<LoanElement> findLoanByCardNumber(String cardNumber) {
         UUID uuid = UUID.fromString(cardNumber);
