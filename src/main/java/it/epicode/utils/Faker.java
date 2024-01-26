@@ -6,6 +6,7 @@ import it.epicode.entities.User;
 import it.epicode.enumobj.Periodicity;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.function.Supplier;
@@ -28,5 +29,14 @@ public class Faker {
         LocalDate now = LocalDate.now();
         return new User(faker.dragonBall().character(), faker.animal().name(), now.minusDays(rndm.nextInt(4380, 29200)));
     };
+
+    public static List<?> isEmpty(List<?> lista) {
+        if (lista.isEmpty()) {
+            System.out.println("Is empty");
+        }
+        return lista;
+
+
+    }
 
 };

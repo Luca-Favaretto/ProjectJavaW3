@@ -63,4 +63,15 @@ public class User {
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "cardNumber=" + cardNumber +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", birthDate=" + birthDate +
+                ", loans=" + loans +
+                '}';
+    }
 }
