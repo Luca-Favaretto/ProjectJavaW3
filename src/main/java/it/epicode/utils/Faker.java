@@ -1,6 +1,10 @@
 package it.epicode.utils;
 
+import it.epicode.dao.LoanDAO;
+import it.epicode.dao.LoanElementDAO;
+import it.epicode.dao.UserDAO;
 import it.epicode.entities.Book;
+import it.epicode.entities.Loan;
 import it.epicode.entities.Magazine;
 import it.epicode.entities.User;
 import it.epicode.enumobj.Periodicity;
@@ -30,13 +34,23 @@ public class Faker {
         return new User(faker.dragonBall().character(), faker.animal().name(), now.minusDays(rndm.nextInt(4380, 29200)));
     };
 
+    public static void fullTable(LoanElementDAO loanElementDAO, UserDAO userDAO, LoanDAO loanDAO) {
+        for (int i = 0; i < 5; i++) {
+            Book book = Faker.newBook.get();
+            loanElementDAO.save(book);
+            Magazine magazine = Faker.newMagazine.get();
+            loanElementDAO.save(magazine);
+            User user = Faker.newUser.get();
+            userDAO.save(user);
+            loanDAO.save(new Loan(user, i % 2 == 0 ? book : magazine));
+        }
+    }
+
     public static List<?> isEmpty(List<?> lista) {
         if (lista.isEmpty()) {
             System.out.println("Is empty");
         }
         return lista;
-
-
     }
 
 };

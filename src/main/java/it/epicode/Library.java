@@ -3,10 +3,6 @@ package it.epicode;
 import it.epicode.dao.LoanDAO;
 import it.epicode.dao.LoanElementDAO;
 import it.epicode.dao.UserDAO;
-import it.epicode.entities.Book;
-import it.epicode.entities.Loan;
-import it.epicode.entities.Magazine;
-import it.epicode.entities.User;
 import it.epicode.utils.Faker;
 
 import javax.persistence.EntityManager;
@@ -26,17 +22,7 @@ public class Library {
 
             System.out.println();
             System.out.println("Save loanElement and user");
-
-            for (int i = 0; i < 5; i++) {
-                Book book = Faker.newBook.get();
-                loanElementDAO.save(book);
-                Magazine magazine = Faker.newMagazine.get();
-                loanElementDAO.save(magazine);
-                User user = Faker.newUser.get();
-                userDAO.save(user);
-                loanDAO.save(new Loan(user, i % 2 == 0 ? book : magazine));
-            }
-
+            Faker.fullTable(loanElementDAO, userDAO, loanDAO);
 
             System.out.println("---------------------------------------------------");
 
